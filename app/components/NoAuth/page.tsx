@@ -3,8 +3,6 @@ import styles from '../styles/NoAuth.module.scss'
 const NoAuth=()=>{
 return(
 <>
-<head>Home</head>
-<main></main>
 </>
 )   
 }
