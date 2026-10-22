@@ -9,15 +9,25 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "aos": "^2.3.4",
+    "axios": "^1.20.0",
+    "bootstrap": "^5.3.8",
     "next": "16.4.2",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "react-modal": "^3.16.3",
+    "react-player": "^3.4.0",
+    "reactstrap": "^9.2.3",
+    "saas": "^1.0.0",
+    "swr": "^2.5.1"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",
+    "@types/aos": "^3.0.8",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/react-modal": "^3.16.3",
     "eslint": "^9",
     "eslint-config-next": "16.4.2",
     "tailwindcss": "^4",
