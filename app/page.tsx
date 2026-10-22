@@ -1,5 +1,6 @@
-
-import { HeaderNoAuth } from "./components/NoAuth/Header/page";
+import styles from './styles/NoAuth.module.scss'
+import { HeaderNoAuth } from "./Components/NoAuth/Header/page";
+import { Presentation } from "./Components/NoAuth/Presentation/page";
 export default function Home() {
 return (
 <>
@@ -9,7 +10,12 @@ return (
 <meta property="og:title" content="Ecommerce tailor-made" key="title"/>
 <meta name="description" content="Tenha accesso as melhores joias de uma forma fácil e acessível"/>
 </head>
-<main><HeaderNoAuth/></main>
+<main>
+<div className={styles.sectionBackground}>
+<HeaderNoAuth/>
+<Presentation/>
+</div>
+</main>
 </>
 
 )
