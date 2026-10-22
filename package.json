@@ -18,7 +18,7 @@
     "react-modal": "^3.16.3",
     "react-player": "^3.4.0",
     "reactstrap": "^9.2.3",
-    "saas": "^1.0.0",
+    "sass": "^1.106.1",
     "swr": "^2.5.1"
   },
   "devDependencies": {
