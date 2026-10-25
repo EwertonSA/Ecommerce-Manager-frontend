@@ -18,12 +18,16 @@ thumbnail:string
 orders?:OrderType[]
 }
 
-const productService={
+export const productService={
 getNewestProduct:async()=>{
-const res=await api.get("/products/newest").catch((err)=>{
-console.log(err.response.data.message)
-return err.response
-})
-return res
+    try {
+      const res=await api.get("/products/newest")  
+      return res.data
+    } catch (error:any) {
+        return {data:[]}
+    }
+
+
+
 }
 }
