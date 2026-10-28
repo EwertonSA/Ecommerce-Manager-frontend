@@ -6,15 +6,15 @@ import Link from 'next/link';
 export const Presentation=()=>{
 return(
 <>
-<Container className='py-4'>
+<Container fluid className="py-4 px-3">
 <Row>
-<Col md className="d-flex flex-column justify-content-center align-items-start">
+<Col lg className="d-flex flex-column justify-content-center align-items-start">
 <p className={styles.subtitle}>ACESSO ILIMITADO</p>
 <p className={styles.title}>Tenha acesso aos melhores<br/>artigos da região</p>
 <p className={styles.description}>Compre e veja ofertas a qualquer momento e de uma<br/> repaginada no visual</p>
 <Link href='/register'><Button className={styles.btnCta}>ACESSE AGORA <FaPlay className={styles.btnImg}/></Button></Link>
 </Col>
-<Col md>
+<Col lg>
 <img src="/presentation.png" alt="" className={styles.imgPresentation}/>
 </Col>
 </Row>

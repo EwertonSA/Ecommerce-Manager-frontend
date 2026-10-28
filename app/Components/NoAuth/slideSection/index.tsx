@@ -10,7 +10,7 @@ newestProducts:ProductType[]
 
 export const SlideSection= ({newestProducts}:props)=>{
 return <>
-<Container>
+<Container className='d-flex flex-column align-items-center py-5'>
 <p className={styles.title}>Produtos Disponíveis</p>
 <SlideComponent products={newestProducts}/>
 <Link href='/register'><Button outline color='light' className={styles.btn}>Se Cadastre Para Acessar</Button></Link>

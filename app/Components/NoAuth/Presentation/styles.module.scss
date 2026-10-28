@@ -1,6 +1,7 @@
 @use '../../../styles/colors.module.scss' as colors;
 
 .imgPresentation{
+max-width: 100%;
 width: 550px;    
 }
 .subtitle{
@@ -48,6 +49,7 @@ margin: 50px auto;
 @media(max-width:660px){
 .imgPresentation{
 width: 95%;
+max-width: 100%;
 }
 .title{
 font-size: 26px;

@@ -1,0 +1,13 @@
+@use '../../../styles/colors.module.scss' as colors;
+
+.title{
+font-size: 20px;
+font-weight: bold;
+}
+.btn{
+&:hover{
+border-color: colors.$lightPink;
+background-color: transparent;
+color: colors.$lightPink;
+}
+}
