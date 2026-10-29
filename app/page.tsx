@@ -2,7 +2,7 @@ import styles from './styles/NoAuth.module.scss'
 import { HeaderNoAuth } from "./Components/NoAuth/Header/page";
 import { Presentation } from "./Components/NoAuth/Presentation/page";
 import { CardSection } from './Components/NoAuth/CardSection/page';
-import { SlideSection } from './Components/NoAuth/slideSection';
+import { SlideSection } from './Components/NoAuth/SlideSection';
 import { GetStaticProps } from 'next';
 import { productService, ProductType } from './Service/productService';
 import { ReactNode, Suspense } from 'react';
