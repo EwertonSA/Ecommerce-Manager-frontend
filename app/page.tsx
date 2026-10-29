@@ -6,6 +6,7 @@ import { SlideSection } from './Components/NoAuth/slideSection';
 import { GetStaticProps } from 'next';
 import { productService, ProductType } from './Service/productService';
 import { ReactNode, Suspense } from 'react';
+import { Footer } from './Components/Common/Footer';
 
 
 
@@ -20,6 +21,7 @@ return (
 </div>
 <CardSection/>
 <Suspense><SlideSection newestProducts={product}></SlideSection></Suspense>
+<Footer/>
 </main>
 </>
 )

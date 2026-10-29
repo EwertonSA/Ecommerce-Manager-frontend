@@ -1,0 +1,31 @@
+@use '../../../styles/colors.module.scss' as colors;
+
+.footer{
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+padding: 26px 0px;
+gap: 20px;
+}
+.logo{
+width: 220px;
+}
+.link{
+text-decoration: none;
+color:colors.$lightGray;
+transition: 0.4s;
+&:hover{
+color: colors.$darkGray;
+}
+}
+@media(max-width:575px){
+.footer{
+padding: 26px 16px;
+}
+}
+@media(max-width:375px){
+.footer{
+justify-content: center;
+}
+}
