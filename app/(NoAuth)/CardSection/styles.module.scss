@@ -1,4 +1,4 @@
-@use "../../../styles/colors.module.scss" as colors;
+@use "../../styles/colors.module.scss" as colors;
 
 .sectionTitle{
 font-size: 20px;
@@ -35,32 +35,32 @@ margin-left: 8px;
 }
 .card1{
 @extend .card;
-background-image:url('../../../../public/presentation.png');
+background-image:url('../../../public/presentation.png');
 margin-bottom: 40px;
 }
 .card2{
 @extend .card;
-background-image:url('../../../../public/pingents.png');
+background-image:url('../../../public/pingents.png');
 margin-bottom: 40px;
 }
 .card3{
 @extend .card;
-background-image:url('../../../../public/rings.png');
+background-image:url('../../../public/rings.png');
 margin-bottom: 40px;
 }
 .card4{
 @extend .card;
-background-image:url('../../../../public/piercings.png');
+background-image:url('../../../public/piercings.png');
 margin-bottom: 40px;
 }
 .card5{
 @extend .card;
-background-image:url('../../../../public/bracelet.png');
+background-image:url('../../../public/bracelet.png');
 margin-bottom: 40px;
 }
 .card6{
 @extend .card;
-background-image:url('../../../../public/binco.png');
+background-image:url('../../../public/binco.png');
 margin-bottom: 40px;
 }
 

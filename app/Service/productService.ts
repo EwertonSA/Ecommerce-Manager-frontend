@@ -19,15 +19,8 @@ orders?:OrderType[]
 }
 
 export const productService={
-getNewestProduct:async()=>{
-    try {
-      const res=await api.get("/products/newest")  
-      return res.data
-    } catch (error:any) {
-        return {data:[]}
-    }
-
-
-
-}
+getNewestProduct: async (): Promise<ProductType[]> => {
+    const res = await api.get<ProductType[]>("/products/newest")
+    return res.data
+  }
 }

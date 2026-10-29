@@ -2,7 +2,7 @@
 import { ProductType } from '@/app/Service/productService'
 import styles from './styles.module.scss'
 import { Button, Container } from 'reactstrap'
-import { SlideComponent } from '../../Common/SlideComponent'
+import { SlideComponent } from '../../Components/Common/SlideComponent'
 import Link from 'next/link'
 interface props{
 newestProducts:ProductType[]

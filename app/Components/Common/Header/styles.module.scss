@@ -1,0 +1,31 @@
+@use '../../../styles/colors.module.scss' as colors;
+.header{
+background-color: black;
+
+}
+.container{
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+padding: 20px 0px;
+gap: 16px;
+}
+.logo{
+height: 50px;
+cursor:pointer;
+}
+.btn:hover{
+border-color:colors.$lightPink;
+color:colors.$darkPink;
+background-color: transparent;
+}
+@media(max-width:575px){
+.container{
+padding:20px 16px;
+}
+}
+@media(max-width:320px){
+.container{
+justify-content: center;
+}
+}
