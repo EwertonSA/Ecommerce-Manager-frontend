@@ -1,13 +1,38 @@
 'use client'
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap'
 import styles from '../../styles/register.login.module.scss'
+import { FormEvent } from 'react'
+import { authService } from '@/app/Service/authService'
+import { useRouter } from 'next/navigation'
 const Register=()=>{
+const router=useRouter()
+const handleRegister=async(event:FormEvent<HTMLFormElement>)=>{
+event.preventDefault()
+
+const formData= new FormData(event.currentTarget)
+const name=formData.get('name')?.toString()||''
+const email=formData.get('email')?.toString()||''
+const password=formData.get('password')?.toString()||''
+const confirmPassword=formData.get('confirmPassword')?.toString()||''
+const params={name,email,password}
+if(password!==confirmPassword){
+alert('A Senha e confirmação não batem')
+return
+}
+const {data,status}= await authService.register(params)
+console.log('test',status)
+if(status===201){ 
+router.push('/login?registred=true')
+}else{
+alert(data.message)
+}
+}
 return(
 <main className={styles.main}>
 <Container className='py-5'>
 <div className={styles.title}>
 <p ><strong>Bem vindo ao e-commerce mais eficiente da WEB</strong></p></div>
-<Form className={styles.form}>
+<Form className={styles.form} onSubmit={handleRegister}>
 <p className={styles.subTitle}><strong>Faça a sua conta!</strong></p>
 <FormGroup>
 <Label for="name" className={styles.label}>NOME</Label>
@@ -23,7 +48,7 @@ return(
 </FormGroup>
 <FormGroup>
 <Label for="name" className={styles.label}>CONFIRMAR SENHA</Label>
-<Input id='password' name='password' type='password'placeholder='Confirme sua senha?' required minLength={8} maxLength={20} className={styles.input}/>
+<Input id='confirmPassword' name='confirmPassword' type='password'placeholder='Confirme sua senha?' required minLength={8} maxLength={20} className={styles.input}/>
 </FormGroup>
 <FormGroup>
 <Label for="name" className={styles.label}>WHATSAPP</Label>
