@@ -1,11 +1,15 @@
 'use client'
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap'
 import styles from '../../styles/register.login.module.scss'
-import { FormEvent } from 'react'
+import { FormEvent, useState } from 'react'
 import { authService } from '@/app/Service/authService'
 import { useRouter } from 'next/navigation'
+import { ToastComponent } from '@/app/Components/Common/Toast'
 const Register=()=>{
 const router=useRouter()
+const [toastOpen, setToastOpen]=useState(false)
+const [toastMessage, setToastMessage]=useState('')
+
 const handleRegister=async(event:FormEvent<HTMLFormElement>)=>{
 event.preventDefault()
 
@@ -16,16 +20,30 @@ const password=formData.get('password')?.toString()||''
 const confirmPassword=formData.get('confirmPassword')?.toString()||''
 const params={name,email,password}
 if(password!==confirmPassword){
-alert('A Senha e confirmação não batem')
+setToastMessage("Senha ou confirmação incorreta")
+console.log('Disparando toast com a mensagem:', toastMessage)
+setToastOpen(true)
+setTimeout(()=>{setToastOpen(false)},3000)
 return
 }
 const {data,status}= await authService.register(params)
 console.log('test',status)
+try {
 if(status===201){ 
 router.push('/login?registred=true')
 }else{
-alert(data.message)
+setToastOpen(true)
+setTimeout(()=>{setToastOpen(false)},3000)
 }
+} catch (error:any) {
+const errorMsg = error.response?.data?.message || 'Erro ao realizar cadastro'
+    setToastMessage(errorMsg)
+    setToastOpen(true)
+    setTimeout(() => {
+      setToastOpen(false)
+    }, 3000)
+}
+
 }
 return(
 <main className={styles.main}>
@@ -56,8 +74,8 @@ return(
 </FormGroup>
 <Button type='submit' outline className={styles.btn}>Registrar</Button>
 </Form>
-
 </Container>
+<ToastComponent color='bg-danger' isOpen={toastOpen} message={toastMessage} />
 </main>
 )
 }
