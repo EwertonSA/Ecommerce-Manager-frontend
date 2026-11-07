@@ -6,6 +6,7 @@ message:string
 color:string
 }
 export const ToastComponent=({isOpen,message,color}:props)=>{
+
 return(
 <div 
 className="position-fixed top-0 end-0 p-3" 

@@ -21,13 +21,11 @@ const confirmPassword=formData.get('confirmPassword')?.toString()||''
 const params={name,email,password}
 if(password!==confirmPassword){
 setToastMessage("Senha ou confirmação incorreta")
-console.log('Disparando toast com a mensagem:', toastMessage)
 setToastOpen(true)
 setTimeout(()=>{setToastOpen(false)},3000)
 return
 }
 const {data,status}= await authService.register(params)
-console.log('test',status)
 try {
 if(status===201){ 
 router.push('/login?registred=true')
