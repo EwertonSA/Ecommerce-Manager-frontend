@@ -1,0 +1,46 @@
+@use '../../../styles/colors.module.scss' as colors;
+
+.logo{
+width: 160px;
+cursor: pointer;
+}
+.nav{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: center;
+padding: 24px 14px;
+}
+.search{
+width: 25px;
+margin: 0px 10px;
+cursor: pointer;
+}
+.profile{
+font-weight: bold;
+font-size: 24px;
+background-color: #f67;
+color: black;
+text-transform: uppercase;
+min-width: 45px;
+min-height: 45px;
+border-radius: 50%;
+display: flex;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+margin: 0px 14px;
+}
+.input{
+background-color: transparent;
+color: white;
+border-radius: colors.$lightPink;
+&:focus{
+background-color: transparent;
+border-color: colors.$darkPink;
+box-shadow: none;
+}
+&::placeholder{
+color: white;
+}
+}

@@ -1,7 +1,7 @@
 'use client'
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap'
 import styles from '../../styles/register.login.module.scss'
-import { FormEvent, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 import { authService } from '@/app/Service/authService'
 import { useRouter } from 'next/navigation'
 import { ToastComponent } from '@/app/Components/Common/Toast'
@@ -9,7 +9,11 @@ const Register=()=>{
 const router=useRouter()
 const [toastOpen, setToastOpen]=useState(false)
 const [toastMessage, setToastMessage]=useState('')
-
+useEffect(()=>{
+if(sessionStorage.getItem('ecommerce')){
+router.push("/home")
+}
+},[])
 const handleRegister=async(event:FormEvent<HTMLFormElement>)=>{
 event.preventDefault()
 

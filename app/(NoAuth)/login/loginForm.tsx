@@ -13,6 +13,13 @@ const [toastOpen, setToastOpen]=useState(false)
 const [toastMessage, setToastMessage]=useState('')
 
 const search= useSearchParams()
+
+useEffect(()=>{
+if(sessionStorage.getItem('ecommerce')){
+router.push("/home")
+}
+},[])
+
 useEffect(()=>{
 const success= search.get('registred')
 if(success==='true'){ 
