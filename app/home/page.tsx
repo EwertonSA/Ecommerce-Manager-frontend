@@ -1,7 +1,9 @@
+import { ProductSession } from "../Components/Auth/ProductSection";
+
 export default function Home(){
 return(
 <>
-<p>Você está logado!</p>
+<ProductSession/>
 </>
 )
 }
