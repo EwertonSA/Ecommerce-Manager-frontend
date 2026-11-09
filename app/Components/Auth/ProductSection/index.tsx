@@ -9,11 +9,14 @@ export const ProductSession=()=>{
 const {data:response,error}=useSWR('/products',productService.getProducts)
 if(error) return error
 if(!response) return <p>Loading...</p>
-
+const baseUrl=process.env.NEXT_PUBLIC_BASEURL
 return(<>
-{response.data.map((product:ProductType)=>(
-<div style={{backgroundImage:`linear-gradient(to bottom, #6666661a, #151515), 
-url(${process.env.NEXT_PUBLIC_BASEURL}/${product.thumbnail})`, backgroundSize:'cover', 
+{response.data.map((product:ProductType)=>{
+const imgUrl=encodeURI(`${baseUrl}/${product.thumbnail}`)
+console.log('img:',imgUrl)
+return(
+<div 
+style={{backgroundImage:`linear-gradient(to bottom, #6666661a, #151515), url(${imgUrl})`, backgroundSize:'cover', 
 backgroundPosition:'center',height:'480px'}}
  key={product.id}>
 <Container className='pt-4'>
@@ -22,9 +25,9 @@ backgroundPosition:'center',height:'480px'}}
 <p className={styles.price}>{product.price}</p>
 <p className={styles.quantity}>{product.stockQuantity}</p>
 <Link href={`/products/${product.id}`}>
-<Button outline color='light' className={styles.button}>Comprar <FaCartPlus/> </Button></Link>
+<Button outline color='light' className={styles.button}>Comprar <FaCartPlus /> </Button></Link>
 </Container>
 </div>
-))[2]}
+)})[1]}
 </>)
 }
