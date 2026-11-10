@@ -8,7 +8,7 @@ import { Suspense } from 'react';
 import { Footer } from './Components/Common/Footer';
 import { AosInit } from './Components/Common/Aos';
 
-async function NewestProducts() {
+export const NewestProducts=async()=> {
   const products = await productService.getNewestProduct()
   return <SlideSection newestProducts={products} />
 }

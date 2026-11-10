@@ -32,5 +32,14 @@ headers:{Authorization:`Bearer ${token}`}
 console.log(err.response.data.message) 
 return err.response})
 return res
+},
+getBestSelling:async()=>{
+const token=sessionStorage.getItem('ecommerce')
+const res= await api.get<ProductType[]>('/products/selled',{
+headers:{Authorization:`Bearer ${token}`}
+}).catch((err)=>{
+console.log(err.response.data.message) 
+return err.response})
+return res
 }
 }
