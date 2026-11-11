@@ -3,22 +3,22 @@ import { productService, ProductType } from '@/app/Service/productService'
 import useSWR from 'swr'
 import styles from './styles.module.scss'
 import { Button, Container } from 'reactstrap'
-import { FaCartPlus, FaShoppingBag, FaShoppingCart,FaWarehouse} from 'react-icons/fa'
+import { FaWarehouse} from 'react-icons/fa'
 import Link from 'next/link'
+import { AddCartButton } from '../../Common/AddToCart'
+import { CartType } from '../Cart/useCart'
 export const GetAllProducts=()=>{
 const {data:response, error}=useSWR('/products', productService.getProducts)
 if(error) return error
 if(!response) return <p>Loading...</p>
 const baseUrl=process.env.NEXT_PUBLIC_BASEURL
-
-return(
-<>
+return(<>
 <div className={styles.main}>
 {response.data.map((product:ProductType)=>{
 const imgUrl=encodeURI(`${baseUrl}/${product.thumbnail}`)
 return(    
-<div className={styles.card}>
-<Container className={styles.container}  key={product.id}>
+<div className={styles.card} key={product.id}>
+<Container className={styles.container}>
 <img src={imgUrl} className={styles.img}/>
 <p className={styles.name}>{product.name}</p>
 <p className={styles.description}>{product.description}</p>
@@ -30,7 +30,7 @@ return(
 <div  className={styles.actions}>
 <Link className={styles.link} href={`/products/${product.id}`}>
 <Button outline className={styles.btn}>Ver</Button></Link>
-<Button outline className={styles.btnAdd}>Adicionar</Button>
+<AddCartButton product={{...product,quantity:1}}/>
 </div>
 </div>
 )
