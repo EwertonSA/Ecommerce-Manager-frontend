@@ -4,7 +4,7 @@ import {Splide, SplideSlide} from "@splidejs/react-splide";
 import '@splidejs/splide/dist/css/splide.min.css'
 import { SlideCard } from "../SlideCard";
 
-interface props{
+export interface props{
 products:ProductType[]
 }
 export const SlideComponent=({products}:props)=>{
