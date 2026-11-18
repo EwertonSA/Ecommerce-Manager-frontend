@@ -1,5 +1,5 @@
 'use client'
-import { ProductType } from '@/app/Service/productService';
+import { ProductType } from '@/src/Service/productService';
 import styles from './styles.module.scss';
 interface props{
 product:ProductType

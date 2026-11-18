@@ -1,12 +1,12 @@
-import styles from './styles/NoAuth.module.scss'
-import { HeaderNoAuth } from "./(NoAuth)/Header/page";
-import { Presentation } from "./(NoAuth)/Presentation/page";
-import { CardSection } from './(NoAuth)/CardSection/page';
-import { SlideSection } from './(NoAuth)/SlideSection';
-import { productService } from './Service/productService';
+import styles from '../src/styles/NoAuth.module.scss'
+import { HeaderNoAuth } from "../src/(NoAuth)/Header/page";
+import { Presentation } from "../src/(NoAuth)/Presentation/page";
+import { CardSection } from '../src/(NoAuth)/CardSection/page';
+import { SlideSection } from '../src/(NoAuth)/SlideSection';
+import { productService } from '../src/Service/productService';
 import { Suspense } from 'react';
-import { Footer } from './Components/Common/Footer';
-import { AosInit } from './Components/Common/Aos';
+import { Footer } from '../src/Components/Common/Footer';
+import { AosInit } from '../src/Components/Common/Aos';
 
 export const NewestProducts=async()=> {
   const products = await productService.getNewestProduct()

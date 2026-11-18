@@ -1,5 +1,5 @@
 'use client'
-import { ProductType } from '@/app/Service/productService'
+import { ProductType } from '@/src/Service/productService'
 import styles from './styles.module.scss'
 import { Button, Container } from 'reactstrap'
 import { SlideComponent } from '../../Components/Common/SlideComponent'

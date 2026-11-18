@@ -4,8 +4,8 @@ import styles from '../../styles/register.login.module.scss'
 import { useSearchParams } from 'next/navigation'
 import { FormEvent, useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { ToastComponent } from '@/app/Components/Common/Toast'
-import { authService } from '@/app/Service/authService'
+import { ToastComponent } from '@/src/Components/Common/Toast'
+import { authService } from '@/src/Service/authService'
 export const LoginForm=()=>{
 const router=useRouter()
 const [toastColor, setToastColor]=useState('')

@@ -2,9 +2,9 @@
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap'
 import styles from '../../styles/register.login.module.scss'
 import { FormEvent, useEffect, useState } from 'react'
-import { authService } from '@/app/Service/authService'
+import { authService } from '@/src/Service/authService'
 import { useRouter } from 'next/navigation'
-import { ToastComponent } from '@/app/Components/Common/Toast'
+import { ToastComponent } from '@/src/Components/Common/Toast'
 const Register=()=>{
 const router=useRouter()
 const [toastOpen, setToastOpen]=useState(false)

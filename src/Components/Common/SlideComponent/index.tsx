@@ -1,5 +1,5 @@
 'use client'
-import { ProductType } from "@/app/Service/productService";
+import { ProductType } from "@/src/Service/productService";
 import {Splide, SplideSlide} from "@splidejs/react-splide";
 import '@splidejs/splide/dist/css/splide.min.css'
 import { SlideCard } from "../SlideCard";

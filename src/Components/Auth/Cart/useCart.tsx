@@ -1,9 +1,20 @@
 'use client'
-import { useEffect, useState } from "react"
-import { ProductType } from '@/app/Service/productService'
+import { createContext,ReactNode, useContext, useEffect, useState } from "react"
+import { ProductType } from '@/src/Service/productService'
+
 export interface CartType extends ProductType{quantity:number}
+export interface CartContextData{
+cart:CartType[]
+isLoaded:boolean
+addToCart:(product:CartType)=> void
+removeFromCart:(id:number)=>void
+clearCart:()=>void
+handleIncrease:(id:number)=>void
+handleDecrease:(id:number)=>void
+}
 export const CART= 'ecommerce'
-export const useCart=()=>{
+const CartContext=createContext({}as CartContextData)
+export const CartProvider=({children}:{children:ReactNode})=>{
 const [cart,setCart]=useState<CartType[]>([])
 const [isLoaded, setIsLoaded] = useState(false)
 useEffect(()=>{
@@ -17,7 +28,7 @@ setIsLoaded(true)
 }
 },[])
 useEffect(()=>{
-    if(!isLoaded)return
+if(!isLoaded)return
 try {
 localStorage.setItem(CART,JSON.stringify(cart))
 } catch (error) {
@@ -58,7 +69,15 @@ return p
 ).filter((p)=>p.quantity>0)
 })
 }
-return{cart,setCart,addToCart,removeFromCart,clearCart,handleIncrease, handleDecrease}
+return(
+<CartContext.Provider value={{cart,isLoaded,addToCart,removeFromCart,clearCart,handleIncrease,handleDecrease}}>
+{children}
+</CartContext.Provider>
+)}
+export const useCart=()=>{
+const context=useContext(CartContext)
+if(!context)throw new Error("This hook may be used inside a provider")
+return context   
 }
 
 
