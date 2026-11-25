@@ -1,5 +1,4 @@
 @use '../../styles/colors.module.scss' as colors;
-
 .imgPresentation{
 max-width: 100%;
 width: 550px;    
@@ -39,6 +38,17 @@ background-color: transparent;
 }
 .arrow{
 width: 250px;
+display: flex;
+justify-content: center;
+align-items: center;
+padding-top: 50px;
+cursor: pointer;
+}
+.test{
+color: white;
+&:hover{
+color: colors.$darkPink;
+}
 }
 @media(max-width:991px){
 .imgPresentation{
