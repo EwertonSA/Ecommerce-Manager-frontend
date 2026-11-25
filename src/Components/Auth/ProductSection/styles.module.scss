@@ -17,15 +17,14 @@ overflow: hidden;
 text-overflow: clip;
 }
 .button{
-display: flex;
-align-items: center;
 gap: 15px;
 font-weight: bold;
 padding: 10px 35px;
+background-color: transparent;
 &:hover{
 border-color: colors.$lightPink;
-background-color: transparent;
-color: colors.$lightGray;
+background-color:colors.$lightGray;
+color: colors.$darkPink;
 }
 }
 @media(max-width:767px){

@@ -23,8 +23,7 @@ backgroundPosition:'center',height:'480px'}}
 <p className={styles.description}>{product.description}</p>
 <p className={styles.price}>{product.price}</p>
 <p className={styles.quantity}>{product.stockQuantity}</p>
-<Link href={`/products/${product.id}`}>
-<Button outline color='light' className={styles.button}>Comprar <FaCartPlus className='py-5' /> </Button></Link>
+<Button tag={Link} href={`/products/${product.id}`} className={styles.button}>Comprar <FaCartPlus /> </Button>
 </Container>
 </div>
 )})[1]}

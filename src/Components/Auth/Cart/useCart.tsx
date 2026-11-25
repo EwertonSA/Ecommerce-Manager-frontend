@@ -1,5 +1,5 @@
 'use client'
-import { createContext,ReactNode, useContext, useEffect, useState } from "react"
+import { createContext,ReactNode, useContext, useEffect, useMemo, useState } from "react"
 import { ProductType } from '@/src/Service/productService'
 
 export interface CartType extends ProductType{quantity:number}
@@ -9,6 +9,7 @@ isLoaded:boolean
 addToCart:(product:CartType)=> void
 removeFromCart:(id:number)=>void
 clearCart:()=>void
+cartAmount:number
 handleIncrease:(id:number)=>void
 handleDecrease:(id:number)=>void
 }
@@ -52,6 +53,12 @@ const clearCart=()=>{
 setCart([])
 localStorage.removeItem(CART)
 }
+const cartAmount=useMemo(()=>{
+return cart.reduce((acc,item)=>acc+(item.quantity*Number(item.price)),0)
+},[cart])
+
+
+
 const handleIncrease=(id:number)=>{
 setCart((prod)=>{
 return prod.map((p)=>
@@ -70,7 +77,7 @@ return p
 })
 }
 return(
-<CartContext.Provider value={{cart,isLoaded,addToCart,removeFromCart,clearCart,handleIncrease,handleDecrease}}>
+<CartContext.Provider value={{cart,isLoaded,addToCart,removeFromCart,clearCart, cartAmount, handleIncrease,handleDecrease}}>
 {children}
 </CartContext.Provider>
 )}
