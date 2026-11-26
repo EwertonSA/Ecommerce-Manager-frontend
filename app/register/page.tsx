@@ -1,6 +1,6 @@
 'use client'
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap'
-import styles from '../../styles/register.login.module.scss'
+import styles from '../../src/styles/register.login.module.scss'
 import { FormEvent, useEffect, useState } from 'react'
 import { authService } from '@/src/Service/authService'
 import { useRouter } from 'next/navigation'

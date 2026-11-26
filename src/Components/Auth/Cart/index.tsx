@@ -7,8 +7,10 @@ import { CartAmount } from "./CartAmount"
 export const Cart=()=>{
 const {cart,handleDecrease,handleIncrease}=useCart()
 return(<div className={styles.main}>
-<CartAmount/>
+
 <h1 className={styles.title}>Produtos adicionados ao carrinho</h1>
+<div className={styles.cart}><CartAmount/></div>
+
 {cart.map((product)=>{
 const baseUrl= process.env.NEXT_PUBLIC_BASEURL
 const imgUrl=`${baseUrl}/${product.thumbnail}`

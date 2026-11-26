@@ -1,0 +1,8 @@
+@use '../../../../styles/colors.module.scss' as colors;
+
+.amount{
+background-color: colors.$darkGreen;
+width: 100vh;
+border-radius: 10px;
+padding: 10px 12px;
+}

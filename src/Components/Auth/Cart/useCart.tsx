@@ -57,8 +57,6 @@ const cartAmount=useMemo(()=>{
 return cart.reduce((acc,item)=>acc+(item.quantity*Number(item.price)),0)
 },[cart])
 
-
-
 const handleIncrease=(id:number)=>{
 setCart((prod)=>{
 return prod.map((p)=>

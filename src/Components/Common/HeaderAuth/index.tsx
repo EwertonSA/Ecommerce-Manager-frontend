@@ -30,7 +30,10 @@ return(
 <p className={styles.profile} onClick={handleOpenModal}>AB</p>
 </div>
 <Modal isOpen={modalOpen} toggle={handleCloseModal} className={styles.modal} backdropClassName={styles.overlay}>
-<div className={styles.link}><Link href='/profile'><p >Meus Dados</p></Link>
+<div className={styles.link}>
+<Link href='/profile'><p >Meus Dados</p></Link>
+<Link href='home'><p>Home</p></Link>
+<Link href='/cart'><p>Carrinho</p></Link>
 <p className={styles.link} onClick={handleLogout}>Sair</p></div>
 </Modal>
 </Container>
