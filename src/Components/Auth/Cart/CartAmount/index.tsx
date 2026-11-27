@@ -1,10 +1,30 @@
-import { useCart } from '../useCart'
+import { Button } from 'reactstrap'
+import { CartType, useCart } from '../useCart'
 import styles from './styles.module.scss'
-export const CartAmount=()=>{
+import Link from 'next/link'
+export interface CartProps{
+cart:CartType[]
+}
+export const CartAmount=({cart}:CartProps)=>{
 const {cartAmount}=useCart()
+const total= cart.reduce((acc,item)=>{
+return acc+Number(item.quantity)},0)
 return(
-<>
-<h1 className={styles.amount}>Total: R$ {cartAmount.toFixed(2)}</h1>
-</>
+<div className={styles.container}>
+<div className={styles.address}>
+<p>Endereço para frete</p>
+<Button tag={Link} href='/address'  className={styles.btn}>Adicionar+</Button>
+</div>
+<div className={styles.cart}>
+<div className={styles.value}>
+<p>Produtos({total})</p>
+<p className={styles.amount}>Total: R$ {cartAmount.toFixed(2)}</p>
+</div>
+<div className={styles.cep}>
+<p >Envio para: 09798321</p>
+</div>
+<Button className={styles.btn}>Avançar</Button>
+</div>
+</div>
 )
 }
